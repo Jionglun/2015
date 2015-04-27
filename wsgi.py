@@ -76,7 +76,7 @@ class Hello(object):
     @cherrypy.expose
     # index 方法為 CherryPy 各類別成員方法中的內建(default)方法, 當使用者執行時未指定方法, 系統將會優先執行 index 方法
     # 有 self 的方法為類別中的成員方法, Python 程式透過此一 self 在各成員方法間傳遞物件內容
-    def index_orig(self, toprint="Hello World!"):
+    def index_orig(self, toprint="40223237"):
         return toprint
     #@+node:2014fall.20141212095015.1779: *3* hello
     @cherrypy.expose
@@ -543,21 +543,19 @@ class Hello(object):
     pa = 10
     # m 為模數
     m = 10
+
+
     # 第1齒輪齒數
     n_g1 = 13
     # 第2齒輪齒數
     n_g2 = 18
-    n_g3 = 20
-    n_g4 = 28
-    n_g5 = 30
-    n_g6 = 16
+
+
     # 計算兩齒輪的節圓半徑
     rp_g1 = m*n_g1/2
     rp_g2 = m*n_g2/2
-    rp_g3 = m*n_g3/2
-    rp_g4 = m*n_g4/2
-    rp_g5 = m*n_g5/2
-    rp_g6 = m*n_g6/2
+
+
     # 將第1齒輪順時鐘轉 90 度
     # 使用 ctx.save() 與 ctx.restore() 以確保各齒輪以相對座標進行旋轉繪圖
     ctx.save()
@@ -581,47 +579,6 @@ class Hello(object):
     spur.Spur(ctx).Gear(400+rp_g1+rp_g2,400,rp_g2,n_g2, pa, "black")
     ctx.restore()
 
-    # 第3齒
-    ctx.save()
-    # translate to the origin of second gear
-    ctx.translate(400+rp_g1+rp_g2+rp_g2+rp_g3,400)
-    # rotate to engage
-    ctx.rotate(pi/2)
-    # put it back
-    ctx.translate(-(400+rp_g1+rp_g2+rp_g2+rp_g3),-400)
-    spur.Spur(ctx).Gear(400+rp_g1+rp_g2+rp_g2+rp_g3,400,rp_g3,n_g3, pa, "yellow")
-    ctx.restore()
-
-    # 第4齒
-    ctx.save()
-    # translate to the origin of second gear
-    ctx.translate(400+rp_g1+rp_g2+rp_g2+rp_g3+rp_g3+rp_g4,400)
-    # rotate to engage
-    ctx.rotate(-pi/2-pi/n_g4)
-    # put it back
-    ctx.translate(-(400+rp_g1+rp_g2+rp_g2+rp_g3+rp_g3+rp_g4),-400)
-    spur.Spur(ctx).Gear(400+rp_g1+rp_g2+rp_g2+rp_g3+rp_g3+rp_g4,400,rp_g4,n_g4, pa, "purple")
-    ctx.restore()
-    # 第5齒
-    ctx.save()
-    # translate to the origin of second gear
-    ctx.translate(400+rp_g1+rp_g2+rp_g2+rp_g3+rp_g3+rp_g4+rp_g4+rp_g5,400)
-    # rotate to engage
-    ctx.rotate(-pi/2)
-    # put it back
-    ctx.translate(-(400+rp_g1+rp_g2+rp_g2+rp_g3+rp_g3+rp_g4+rp_g4+rp_g5),-400)
-    spur.Spur(ctx).Gear(400+rp_g1+rp_g2+rp_g2+rp_g3+rp_g3+rp_g4+rp_g4+rp_g5,400,rp_g5,n_g5, pa, "green")
-    ctx.restore()
-    # 第6齒
-    ctx.save()
-    # translate to the origin of second gear
-    ctx.translate(400+rp_g1+rp_g2+rp_g2+rp_g3+rp_g3+rp_g4+rp_g4+rp_g5+rp_g5+rp_g6,400)
-    # rotate to engage
-    ctx.rotate(-pi/2-pi/n_g6)
-    # put it back
-    ctx.translate(-(400+rp_g1+rp_g2+rp_g2+rp_g3+rp_g3+rp_g4+rp_g4+rp_g5+rp_g5+rp_g6),-400)
-    spur.Spur(ctx).Gear(400+rp_g1+rp_g2+rp_g2+rp_g3+rp_g3+rp_g4+rp_g4+rp_g5+rp_g5+rp_g6,400,rp_g6,n_g6, pa, "black")
-    ctx.restore()
 
     </script>
     <canvas id="plotarea" width="2000" height="2000"></canvas>
